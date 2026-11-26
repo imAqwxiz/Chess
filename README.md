@@ -48,7 +48,7 @@ Stockfish can provide:
 - Best move suggestions.
 - Game Reviews.
 
-Stockfish is licenses under GPL-3.0. Its source code, network files and distribution requirements will be handled in accordance with their respective licenses.
+Stockfish is licensed under GPL-3.0. Its source code, network files and distribution requirements will be handled in accordance with their respective licenses.
 
 # Contributing
 Contributions are welcome!
