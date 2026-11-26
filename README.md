@@ -29,12 +29,14 @@ Installation guide will be provided here after its first stable release.
 - Compatible C++ compiler.
 - Android NDK (for Android builds)
 
-# Clone the repo
-```bash
-git clone https://github.com/imAqwxiz/Chess
-cd chess```
+### Clone the Repository
 
-(full build will be provided as the mod will be developed)
+```bash
+git clone https://github.com/imAqwxiz/Chess.git
+cd Chess
+```
+
+Build instructions will be provided as development progresses.
 
 # Stockfish
 
