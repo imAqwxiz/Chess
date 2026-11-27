@@ -1,0 +1,19 @@
+{
+    "geode": "v5.11.2",
+    "gd": {
+        "android": "2.2081"
+    },
+    "id": "aqwxiz.gdchess",
+    "name": "GDChess",
+    "version": "v1.0.0",
+    "developer": "Aqwxiz",
+    "description": "A playable chess game inside Geometry Dash.",
+    "links": {
+        "source": "https://github.com/imAqwxiz/Chess"
+    },
+    "tags": [
+        "gameplay",
+        "offline"
+    ]
+}
+
