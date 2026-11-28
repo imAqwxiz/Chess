@@ -1,6 +1,6 @@
 # GDChess
 
-Pretty straightforward. GDChess is an open-source mod to play Chess directly in Geometry Dash!
+Pretty straighftorward. GDChess is an open-source mod to play Chess directly in Geometry Dash!
 Play against friends, random players or challenge the ultimate AI Stockfish!
 
 
