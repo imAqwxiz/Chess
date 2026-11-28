@@ -72,4 +72,10 @@ Third-party components retain their respective licenses. See `THIRD_PARTY.md` fo
 # Note
 
 - This project was created purely out of boredom and for fun. I came up with the idea a few days ago, so please don't flame me for vibecoding. I'm just experimenting and having fun with the project.
+# Credits
+- aqwxiz
+- vivi
+- random kid
+- claude
+- deepseek v4.1 flash
 
