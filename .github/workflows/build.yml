@@ -1,3 +1,4 @@
+
 name: Build GDChess
 
 on:
@@ -8,8 +9,21 @@ on:
 
 jobs:
   build-geode-mod:
-    name: Android64
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - name: Android64
+            os: ubuntu-latest
+            target: Android64
+
+          - name: Windows
+            os: windows-latest
+            target: Win64
+
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -19,17 +33,22 @@ jobs:
           bindings: geode-sdk/bindings
           bindings-ref: main
           combine: true
-          target: Android64
+          target: ${{ matrix.config.target }}
 
   package:
-    name: Package build
+    name: Package builds
     runs-on: ubuntu-latest
-    needs: ["build-geode-mod"]
+    needs: [build-geode-mod]
+
     steps:
-      - uses: geode-sdk/build-geode-mod/combine@main
+      - name: Combine platform builds
+        uses: geode-sdk/build-geode-mod/combine@main
         id: build
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: GDChess
           path: ${{ steps.build.outputs.build-output }}
+          if-no-files-found: error
+

@@ -1,19 +1,29 @@
+
 {
     "geode": "5.11.2",
     "gd": {
-        "android": "2.2081"
+        "android": "2.2081",
+        "win": "2.2081"
     },
     "id": "aqwxiz.gdchess",
     "name": "GDChess",
     "version": "v1.0.0",
-    "developer": "Aqwxiz",
-    "description": "A playable chess game inside Geometry Dash.",
+    "developers": [
+        "Aqwxiz",
+        "Darwin"
+    ],
+    "description": "A fully playable offline chess game inside Geometry Dash.",
     "links": {
         "source": "https://github.com/imAqwxiz/Chess"
     },
+    "issues": {
+        "url": "https://github.com/imAqwxiz/Chess/issues",
+        "info": "Found a bug or have a suggestion? Report it on GitHub."
+    },
     "tags": [
         "gameplay",
-        "offline"
+        "offline",
+        "interface"
     ],
     "resources": {
         "sprites": [
@@ -21,3 +31,4 @@
         ]
     }
 }
+
