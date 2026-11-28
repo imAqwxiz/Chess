@@ -1,44 +1,51 @@
 
 cmake_minimum_required(VERSION 3.21)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_CXX_VISIBILITY_PRESET hidden)
-
-if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS" OR IOS)
-    set(CMAKE_OSX_ARCHITECTURES "arm64")
-else()
-    set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64")
-endif()
-
 project(GDChess VERSION 1.0.0)
 
-# Collect all source files recursively
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
+
+# Platform configuration
+if(WIN32)
+    message(STATUS "Configuring GDChess for Windows")
+
+elseif(ANDROID)
+    message(STATUS "Configuring GDChess for Android")
+
+else()
+    message(FATAL_ERROR "Unsupported platform. Windows and Android only.")
+endif()
+
+# Collect source files
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
-    src/*.cpp
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 
-# Create the mod library
+# Create mod library
 add_library(${PROJECT_NAME} SHARED
     ${SOURCES}
 )
 
-# Locate the Geode SDK
-if (NOT DEFINED ENV{GEODE_SDK})
+# Locate Geode SDK
+if(NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR
         "Unable to find Geode SDK! Please define GEODE_SDK."
     )
-else()
-    message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
-# Include the Geode SDK
+message(STATUS "Found Geode SDK: $ENV{GEODE_SDK}")
+
+# Include Geode SDK
 add_subdirectory(
-    $ENV{GEODE_SDK}
-    ${CMAKE_CURRENT_BINARY_DIR}/geode
+    "$ENV{GEODE_SDK}"
+    "${CMAKE_CURRENT_BINARY_DIR}/geode"
 )
 
-# Configure and link the mod
+# Configure Geode mod
 setup_geode_mod(${PROJECT_NAME})
 
